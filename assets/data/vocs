@@ -27,6 +27,7 @@
 {"ch":"多少錢？","kr":"얼마에요","pinyin":"eolma-eyo","cates":[1,2,3,4]},
 {"ch":"太貴了","kr":"비싸요","pinyin":"bissayo","cates":[2]},
 {"ch":"算便宜一點","kr":"깎아주세요","pinyin":"kkakk-ajuseyo","cates":[2]},
+{"ch":"請你算我便宜一點","kr":"좀싸게해주세요","pinyin":"jomssagehaejuseyo","cates":[2]},
 {"ch":"請給我發票","kr":"영수증주세요","pinyin":"yeongsujeungjuseyo","cates":[2,3,4]},
 {"ch":"我要換成韓元","kr":"한국돈으로빠꿔주세요","pinyin":"hangug don-eulo bakkwojuseyo","cates":[2]},
 {"ch":"要在哪裡買票？","kr":"표를어디서끊나요","pinyin":"pyoleul-eodiseokkeunhnayo","cates":[4]},
