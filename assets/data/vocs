@@ -1,7 +1,8 @@
 [
 {"ch":"你好","kr":"안녕하세요","pinyin":"annyeonghaseyo","cates":[0]},
 {"ch":"謝謝","kr":"감사합니다","pinyin":"gamsahabnida","cates":[0]},
-{"ch":"再見","kr":"안녕히가세요","pinyin":"annyeonghigaseyo","cates":[0]},
+{"ch":"再見，請慢走","kr":"안녕히가세요","pinyin":"annyeonghigaseyo","cates":[0]},
+{"ch":"再見，我要走了","kr":"안녕히게세요","pinyin":"annyeonghi gyeseyo","cates":[0]},
 {"ch":"對不起","kr":"미안해요","pinyin":"mianhaeyo","cates":[0]},
 {"ch":"沒關係","kr":"괜찮아요","pinyin":"gwaenchanh-ayo","cates":[0]},
 {"ch":"不客氣","kr":"천만에요","pinyin":"cheonman-eyo","cates":[0]},
