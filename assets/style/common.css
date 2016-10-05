@@ -1,0 +1,38 @@
+body {
+  margin: 10px 10px 60px 10px;
+}
+
+.navbar {
+  min-height: 0;
+}
+
+  .navbar-nav {
+    display: flex;
+    margin: 0;
+    float: none;
+    text-align: center;
+  }
+
+    .navbar-nav > li {
+      flex: 1;
+    }
+
+@media only screen and (max-width: 1199px) {
+
+}
+@media only screen and (max-width: 991px) {
+
+}
+
+@media only screen and (max-width: 767px) {
+  tr th:nth-child(3),
+  tr td:nth-child(3) {
+    display: none;
+  }
+
+
+  .navbar-nav > li span {
+    display: none;
+  }
+
+}

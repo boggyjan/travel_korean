@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>旅行韓文</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/style/common.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <ul class="nav navbar-nav">
+      <li><a href="#" data-cate="0"><i class="fa fa-hand-paper-o"></i><span> 打招呼</span></a></li>
+      <li><a href="#" data-cate="1"><i class="fa fa-coffee"></i><span> 吃飯</span></a></li>
+      <li><a href="#" data-cate="2"><i class="fa fa-shopping-bag"></i><span> 購物</span></a></li>
+      <li><a href="#" data-cate="3"><i class="fa fa-building"></i><span> 飯店</span></a></li>
+      <li><a href="#" data-cate="4"><i class="fa fa-cab"></i><span> 交通</span></a></li>
+      <li><a href="#" data-cate="5"><i class="fa fa-ban"></i><span> 髒話</span></a></li>
+    </ul>
+  </nav>
+
+  <div id="vocsList">
+    
+    <h2>{{ cateName }}</h2>
+    <table class="table table-striped" v-if="vocs">
+      <colgroup>
+        <col class="col-sm-4 col-xs-6">
+        <col class="col-sm-4 col-xs-6">
+        <col class="col-sm-4">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>華語</th>
+          <th>韓語</th>
+          <th>拼音</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="voc in vocs">
+          <td>{{ voc.ch }}</td>
+          <td>{{ voc.kr }}</td>
+          <td>{{ voc.pinyin }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="assets/libs/vue.js/vue.js"></script>
+  <script src="assets/js/common.js"></script>
+</body>
+
+</html>

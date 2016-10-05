@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>旅行韓文</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/style/common.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-bottom">
+    <ul class="nav navbar-nav">
+      <li><a href="#" data-cate="0"><i class="fa fa-hand-paper-o"></i><span> 打招呼</span></a></li>
+      <li><a href="#" data-cate="1"><i class="fa fa-coffee"></i><span> 吃飯</span></a></li>
+      <li><a href="#" data-cate="2"><i class="fa fa-shopping-bag"></i><span> 購物</span></a></li>
+      <li><a href="#" data-cate="3"><i class="fa fa-building"></i><span> 飯店</span></a></li>
+      <li><a href="#" data-cate="4"><i class="fa fa-cab"></i><span> 交通</span></a></li>
+      <li><a href="#" data-cate="5"><i class="fa fa-ban"></i><span> 髒話</span></a></li>
+    </ul>
+  </nav>
+
+  <div id="vocsList">
+    
+    <h2>{{ cateName }}</h2>
+    <table class="table table-striped" v-if="vocs">
+      <colgroup>
+        <col class="col-sm-4 col-xs-6">
+        <col class="col-sm-4 col-xs-6">
+        <col class="col-sm-4">
+      </colgroup>
+      <thead>
+        <tr>
+          <th>華語</th>
+          <th>韓語</th>
+          <th>拼音</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="voc in vocs">
+          <td>{{ voc.ch }}</td>
+          <td>{{ voc.kr }}</td>
+          <td>{{ voc.pinyin }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!--
+  <div class="panel panel-default">
+    <div class="panel-heading">打招呼</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <colgroup>
+          <col class="col-sm-4 col-xs-6">
+          <col class="col-sm-4 col-xs-6">
+          <col class="col-sm-4">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>華語</th>
+            <th>韓語</th>
+            <th>拼音</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>你好</td>
+            <td>안녕하세요</td>
+            <td>annyeonghaseyo</td>
+          </tr>
+          <tr>
+            <td>謝謝</td>
+            <td>감사합니다</td>
+            <td>gamsahabnida</td>
+          </tr>
+          <tr>
+            <td>再見</td>
+            <td>안녕히가세요</td>
+            <td>annyeonghigaseyo</td>
+          </tr>
+          <tr>
+            <td>對不起</td>
+            <td>미안해요</td>
+            <td>mianhaeyo</td>
+          </tr>
+          <tr>
+            <td>沒關係</td>
+            <td>괜찮아요</td>
+            <td>gwaenchanh-ayo</td>
+          </tr>
+          <tr>
+            <td>不客氣</td>
+            <td>천만에요</td>
+            <td>cheonman-eyo</td>
+          </tr>
+          <tr>
+            <td>不好意思；請問</td>
+            <td>죄송합니다</td>
+            <td>joesonghabnida</td>
+          </tr>
+          <tr>
+            <td>我不懂韓語</td>
+            <td>한국말을못해요</td>
+            <td>hangugmal-eulmoshaeyo</td>
+          </tr>
+          <tr>
+            <td>你會說中文嗎</td>
+            <td>중국어를줄알아요</td>
+            <td>jung-gug-eoleuljul-al-ayo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">單字</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <colgroup>
+          <col class="col-sm-4 col-xs-6">
+          <col class="col-sm-4 col-xs-6">
+          <col class="col-sm-4">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>華語</th>
+            <th>韓語</th>
+            <th>拼音</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>哥</td>
+            <td>오빠</td>
+            <td>oppa</td>
+          </tr>
+          <tr>
+            <td>姐</td>
+            <td>언니</td>
+            <td>eonni</td>
+          </tr>
+          <tr>
+            <td>大叔</td>
+            <td>아저씨</td>
+            <td>ajeossi</td>
+          </tr>
+          <tr>
+            <td>大嬸</td>
+            <td>아줌마</td>
+            <td>ajumma</td>
+          </tr>
+          <tr>
+            <td>有</td>
+            <td>있어요</td>
+            <td>iss-eoyo</td>
+          </tr>
+          <tr>
+            <td>沒有</td>
+            <td>없어요</td>
+            <td>eobs-eoyo</td>
+          </tr>
+          <tr>
+            <td>是</td>
+            <td>네</td>
+            <td>ne</td>
+          </tr>
+          <tr>
+            <td>不是</td>
+            <td>아니오</td>
+            <td>anio</td>
+          </tr>
+          <tr>
+            <td>辣</td>
+            <td>매워주세요</td>
+            <td>jaewojuseyo</td>
+          </tr>
+          <tr>
+            <td>不辣</td>
+            <td>맵은빼주세요</td>
+            <td>maeb-eunppaejuseyo</td>
+          </tr>
+          <tr>
+            <td>不知道</td>
+            <td>몰라요</td>
+            <td>mollayo</td>
+          </tr>
+          <tr>
+            <td>好吃</td>
+            <td>맛있어요</td>
+            <td>mas-iss-eoyo</td>
+          </tr>
+          <tr>
+            <td>結帳</td>
+            <td>게산주세요</td>
+            <td>gesanjuseyo</td>
+          </tr>
+          <tr>
+            <td>這裡(叫服務員)</td>
+            <td>여기요</td>
+            <td>yeogiyo</td>
+          </tr>
+          <tr>
+            <td>退附加稅</td>
+            <td>부가세환급</td>
+            <td>bugasehwangeub</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">會話</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <colgroup>
+          <col class="col-sm-4 col-xs-6">
+          <col class="col-sm-4 col-xs-6">
+          <col class="col-sm-4">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>華語</th>
+            <th>韓語</th>
+            <th>拼音</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>這是什麼？</td>
+            <td>이것무엇입니까</td>
+            <td>igeosmueos-ibnikka</td>
+          </tr>
+          <tr>
+            <td>多少錢？</td>
+            <td>얼마에요</td>
+            <td>eolma-eyo</td>
+          </tr>
+          <tr>
+            <td>太貴了</td>
+            <td>비싸요</td>
+            <td>bissayo</td>
+          </tr>
+          <tr>
+            <td>算便宜一點</td>
+            <td>깎아주세요</td>
+            <td>kkakk-ajuseyo</td>
+          </tr>
+          <tr>
+            <td>請給我發票</td>
+            <td>영수증주세요</td>
+            <td>yeongsujeungjuseyo</td>
+          </tr>
+          <tr>
+            <td>我要換成韓元</td>
+            <td>한국돈으로빠꿔주세요</td>
+            <td>hangug don-eulo bakkwojuseyo</td>
+          </tr>
+          <tr>
+            <td>要在哪裡買票？</td>
+            <td>표를어디서끊나요</td>
+            <td>pyoleul-eodiseokkeunhnayo</td>
+          </tr>
+          <tr>
+            <td>儲值T-money卡</td>
+            <td>충전해주세요</td>
+            <td>chungjeonhaejuseyo</td>
+          </tr>
+          <tr>
+            <td>可以使用信用卡嗎？</td>
+            <td>신용카드를습니까</td>
+            <td>sin-yongkadeuleulseubnikka</td>
+          </tr>
+          <tr>
+            <td>什麼食物不辣？</td>
+            <td>어떤음식이맵지않아요</td>
+            <td>eotteon-eumsig-imaebjianh-ayo</td>
+          </tr>
+          <tr>
+            <td>只要一點點辣</td>
+            <td>조금만매워요</td>
+            <td>jogeummanmaewoyo</td>
+          </tr>
+          <tr>
+            <td>OO 在哪裡？</td>
+            <td>OO 어디입니까</td>
+            <td>OO eodiibnikka</td>
+          </tr>
+          <tr>
+            <td>廁所在哪裡？</td>
+            <td>화장실어디입니까</td>
+            <td>hwajangsil-eodiibnikka</td>
+          </tr>
+          <tr>
+            <td>我要退還附加稅</td>
+            <td>부가세환급하려고해요</td>
+            <td>bugasehwangeubhalyeogohaeyo</td>
+          </tr>
+          <tr>
+            <td>這裡是免稅店嗎？</td>
+            <td>여기면세점인가요</td>
+            <td>yeogimyeonsejeom-ingayo</td>
+          </tr>
+          <tr>
+            <td>請在這裡停車</td>
+            <td>내려주세요</td>
+            <td>naelyeojuseyo</td>
+          </tr>
+          <tr>
+            <td>請幫幫我</td>
+            <td>도와주세요</td>
+            <td>dowajuseyo</td>
+          </tr>
+          <tr>
+            <td>請幫我報警</td>
+            <td>경찰을불러주세요</td>
+            <td>gyeongchal-eulbulleojuseyo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">髒話</div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <colgroup>
+          <col class="col-sm-4 col-xs-6">
+          <col class="col-sm-4 col-xs-6">
+          <col class="col-sm-4">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>華語</th>
+            <th>韓語</th>
+            <th>拼音</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>幹</td>
+            <td>십팔</td>
+            <td>sibpal</td>
+          </tr>
+          <tr>
+            <td>狗娘養的</td>
+            <td>개새끼</td>
+            <td>gaesaekki</td>
+          </tr>
+          <tr>
+            <td>臭小子</td>
+            <td>개자식</td>
+            <td>gaejasig</td>
+          </tr>
+          <tr>
+            <td>他媽的</td>
+            <td>제기</td>
+            <td>jegi</td>
+          </tr>
+          <tr>
+            <td>白痴</td>
+            <td>바보야</td>
+            <td>baboya</td>
+          </tr>
+          <tr>
+            <td>變態</td>
+            <td>변태야</td>
+            <td>byeontaeya</td>
+          </tr>
+          <tr>
+            <td>去死吧</td>
+            <td>좆가라</td>
+            <td>jojkkala</td>
+          </tr>
+          <tr>
+            <td>想死嗎</td>
+            <td>너죽을래</td>
+            <td>neojug-eullae</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="assets/libs/vue.js/vue.js"></script>
+  <script src="assets/js/common.js"></script>
+</body>
+
+</html>
