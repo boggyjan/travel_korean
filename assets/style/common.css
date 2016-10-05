@@ -1,5 +1,6 @@
 body {
-  margin: 10px 10px 60px 10px;
+  margin: 0 0 50px 0;
+  font-size: 18px;
 }
 
 .navbar {
@@ -16,6 +17,35 @@ body {
     .navbar-nav > li {
       flex: 1;
     }
+
+    .navbar-nav > li > a {
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+
+    .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:focus, .navbar-default .navbar-nav > .active > a:hover {
+      background-color: #7cb342;
+      color: #fff;
+    }
+
+h2 {
+  padding: 15px 5px;
+  margin: 0;
+  font-size: 24px;
+  color: #fff;
+  text-align: center;
+  background: #7cb342;
+}
+
+tr {
+  cursor: pointer;
+}
+
+  .table > thead > tr > th,
+  .table > tbody > tr > td {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 
 @media only screen and (max-width: 1199px) {
 
