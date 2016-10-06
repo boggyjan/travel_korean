@@ -23,6 +23,7 @@
       sound.load();
       sound.play();
       // 彈出視窗 顯示比較大的韓文，下面是相關詞彙
+      ga('send', 'event', 'Vocabulary', 'click', target.find('td:eq(0)').text());
     });
 
     loadVocs(DEFAULT_CATE);
@@ -55,6 +56,8 @@
         cateVocsData.vocs.push(vocsData[i])
       }
     }
+
+    ga('send', 'event', 'Category', 'click', CATE_NAME[cate]);
   }
 
   init();
