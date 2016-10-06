@@ -17,7 +17,7 @@
     
     $(document).on('click', 'tbody tr', function(e) {
       var target = $(e.currentTarget);
-      var filename = target.find('td:eq(2)').text().replace(/OO /g, '').replace(/ /g, '_') + '.mp3';
+      var filename = target.find('td:eq(1) small').text().replace(/OO /g, '').replace(/ /g, '_') + '.mp3';
       // console.log(filename)
       sound.src = SOUND_PATH + filename;
       sound.load();

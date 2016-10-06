@@ -44,22 +44,22 @@
     <h2>{{ cateName }}</h2>
     <table class="table table-hover" v-if="vocs">
       <colgroup>
-        <col class="col-sm-4 col-xs-6">
-        <col class="col-sm-4 col-xs-6">
-        <col class="col-sm-4">
+        <col class="col-xs-6">
+        <col class="col-xs-6">
       </colgroup>
-      <thead>
+      <thead class="hide">
         <tr>
+          <th>韓國語</th>
           <th>華語</th>
-          <th>韓語</th>
-          <th>拼音</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="voc in vocs">
           <td>{{ voc.ch }}</td>
-          <td>{{ voc.kr }}</td>
-          <td>{{ voc.pinyin }}</td>
+          <td>
+            {{ voc.kr }}
+            <small>{{ voc.pinyin }}</small>
+          </td>
         </tr>
       </tbody>
     </table>
