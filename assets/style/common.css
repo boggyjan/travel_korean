@@ -62,7 +62,7 @@ h2 {
   }
 
   .table > tbody > tr > td {
-    border-top: 1px solid #c8c7cc;
+    border-top: .5px solid #c8c7cc;
   }
 
   .table td small {
