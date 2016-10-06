@@ -7,26 +7,48 @@
   var vocsData = [];
   var cateVocsData = {};
   var sound = document.createElement('audio');
+  var currentPlayingIcon;
 
   function init() {
-    
+    sound.addEventListener("loadeddata", hideSoundIcons, false);
+    sound.addEventListener("canplay", soundPlayed, false);
+    sound.addEventListener("ended", hideSoundIcons, false);
+
+    // change cate
     $(document).on('click', '.navbar a', function(e) {
       var target = $(e.currentTarget);
       showVocsByCate(target.data('cate'));
     });
-    
+
+    // play sound
     $(document).on('click', 'tbody tr', function(e) {
       var target = $(e.currentTarget);
+
+      $('.loading-icon').hide();
+      target.find('.loading-icon').show();
+      currentPlayingIcon = target.find('.playing-icon');
+
       var filename = target.find('td:eq(1) small').text().replace(/OO /g, '').replace(/ /g, '_') + '.mp3';
       // console.log(filename)
       sound.src = SOUND_PATH + filename;
       sound.load();
+
       sound.play();
-      // 彈出視窗 顯示比較大的韓文，下面是相關詞彙
+
+
       ga('send', 'event', 'Vocabulary', 'click', target.find('td:eq(0)').text());
     });
 
     loadVocs(DEFAULT_CATE);
+  }
+
+  function hideSoundIcons(e) {
+    $('.loading-icon, .playing-icon').hide();
+  }
+
+  function soundPlayed(e) {
+    currentPlayingIcon.show();
+    console.log('played')
   }
 
   function loadVocs(cate) {
