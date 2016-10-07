@@ -31,7 +31,7 @@
 {"ch":"我要退還附加稅","kr":"부가세환급하려고해요","pinyin":"bugasehwangeubhalyeogohaeyo","cates":[2]},
 {"ch":"這裡是免稅店嗎？","kr":"여기면세점인가요","pinyin":"yeogimyeonsejeom-ingayo","cates":[2]},
 {"ch":"這是什麼？","kr":"이것무엇입니까","pinyin":"igeosmueos-ibnikka","cates":[1,2,3]},
-{"ch":"OO 在哪裡？","kr":"OO 어디입니까","pinyin":"OO eodiibnikka","cates":[0,1,2,3,4]},
+{"ch":"OO 在哪裡？","kr":"OO 어디입니까","pinyin":"OO eodiibnikka","cates":[2,3,4]},
 {"ch":"多少錢？","kr":"얼마에요","pinyin":"eolma-eyo","cates":[1,2,3,4]},
 {"ch":"太貴了","kr":"비싸요","pinyin":"bissayo","cates":[2]},
 {"ch":"可以試穿(衣服)嗎？","kr":"좀 입어봐도 될까요","pinyin":"jom ib-eobwado doelkkayo","cates":[2]},

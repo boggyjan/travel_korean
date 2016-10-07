@@ -29,7 +29,7 @@
       // 避免重複按時重load
       if (currentPlayingItem) {
         if (currentPlayingItem.find('td:eq(0)').text() == target.find('td:eq(0)').text()) {
-          playSound();
+          replaySound();
           return;
         }
       }
@@ -51,10 +51,14 @@
     $('.loading-icon, .playing-icon').hide();
   }
 
-  function playSound(e) {
-    sound.currentTime = 0;
-    sound.play();
+  function playSound() {
     currentPlayingItem.find('.playing-icon').show();
+    sound.play();
+  }
+
+  function replaySound() {
+    sound.currentTime = 0;
+    playSound();
   }
 
   function loadVocs(cate) {
