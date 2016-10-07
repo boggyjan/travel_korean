@@ -3,10 +3,24 @@
     to {transform: rotate(360deg);}
 }
 
+
+html.splash {
+  min-height: 100%;
+  background: #0fc73a url(../images/apple-touch-icon.png) no-repeat center center;
+}
+
 body {
   margin: 44px 0 45px 0;
   font-size: 16px;
   background: #efeff4;
+}
+
+.splash body {
+  background: transparent;
+}
+
+.splash .wrapper {
+  display: none;
 }
 
 h2 {

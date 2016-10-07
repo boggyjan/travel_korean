@@ -7,7 +7,7 @@
   var vocsData = [];
   var cateVocsData = {};
   var sound = document.createElement('audio');
-  var currentPlayingIcon;
+  var currentPlayingItem;
 
   function init() {
     sound.addEventListener("loadeddata", hideSoundIcons, false);
@@ -23,20 +23,26 @@
     // play sound
     $(document).on('click', 'tbody tr', function(e) {
       var target = $(e.currentTarget);
+      
+      ga('send', 'event', 'Vocabulary', 'click', target.find('td:eq(0)').text());
+
+      // 避免重複按時重load
+      if (currentPlayingItem) {
+        if (currentPlayingItem.find('td:eq(0)').text() == target.find('td:eq(0)').text()) {
+          sound.currentTime = 0;
+          sound.play();
+          return;
+        }
+      }
 
       $('.loading-icon').hide();
       target.find('.loading-icon').show();
-      currentPlayingIcon = target.find('.playing-icon');
+      currentPlayingItem = target;
 
       var filename = target.find('td:eq(1) small').text().replace(/OO /g, '').replace(/ /g, '_') + '.mp3';
-      // console.log(filename)
       sound.src = SOUND_PATH + filename;
       sound.load();
-
       sound.play();
-
-
-      ga('send', 'event', 'Vocabulary', 'click', target.find('td:eq(0)').text());
     });
 
     loadVocs(DEFAULT_CATE);
@@ -47,8 +53,7 @@
   }
 
   function soundPlayed(e) {
-    currentPlayingIcon.show();
-    console.log('played')
+    currentPlayingItem.find('.playing-icon').show();
   }
 
   function loadVocs(cate) {
@@ -63,6 +68,8 @@
         el: '#vocsList',
         data: cateVocsData
       });
+
+      $('html').removeClass('splash');
     });
   }
 
@@ -84,18 +91,6 @@
 
   init();
 
-/*
-  var vocs = []
-  $('tbody tr').each(function(index, item) {
-    var row = $(item);
-    vocs.push({
-      ch: row.find('td:eq(0)').text(),
-      kr: row.find('td:eq(1)').text(),
-      pinyin: row.find('td:eq(2)').text()
-    })
-  })
-  console.log(JSON.stringify(vocs));
-*/
 
 
 }(window, document, jQuery));
