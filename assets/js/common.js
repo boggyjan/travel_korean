@@ -11,7 +11,7 @@
 
   function init() {
     sound.addEventListener("loadeddata", hideSoundIcons, false);
-    sound.addEventListener("canplay", soundPlayed, false);
+    sound.addEventListener("canplay", playSound, false);
     sound.addEventListener("ended", hideSoundIcons, false);
 
     // change cate
@@ -29,20 +29,19 @@
       // 避免重複按時重load
       if (currentPlayingItem) {
         if (currentPlayingItem.find('td:eq(0)').text() == target.find('td:eq(0)').text()) {
-          sound.currentTime = 0;
-          sound.play();
+          playSound();
           return;
         }
       }
 
-      $('.loading-icon').hide();
+      hideSoundIcons();
       target.find('.loading-icon').show();
+      
       currentPlayingItem = target;
 
       var filename = target.find('td:eq(1) small').text().replace(/OO /g, '').replace(/ /g, '_') + '.mp3';
       sound.src = SOUND_PATH + filename;
       sound.load();
-      sound.play();
     });
 
     loadVocs(DEFAULT_CATE);
@@ -52,7 +51,9 @@
     $('.loading-icon, .playing-icon').hide();
   }
 
-  function soundPlayed(e) {
+  function playSound(e) {
+    sound.currentTime = 0;
+    sound.play();
     currentPlayingItem.find('.playing-icon').show();
   }
 
